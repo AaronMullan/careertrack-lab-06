@@ -18,10 +18,26 @@ describe('createResponse', () => {
         expect(res.text).toEqual('greetings earthling');
       });
   });
+  it('returns GET html with an h1 and the word red', () => {
+    return request(app)
+      .get('/red')
+      .then(res => {
+        expect(res.text).toEqual('<h1>red</h1>');
+      });
+  });
+  it('returns GET html with an h1 and the word blue', () => {
+    return request(app)
+      .get('/blue')
+      .then(res => {
+        expect(res.text).toEqual('<h1>blue</h1>');
+      });
+  });
+  it('returns GET html with an h1 and the word green', () => {
+    return request(app)
+      .get('/green')
+      .then(res => {
+        expect(res.text).toEqual('<h1>green</h1>');
+      });
+  });
 });
-// path	method	body
-// /echo	POST	status code 200 and plain text with the request body
-// /red	GET	html with an h1 and the word red
-// /green	GET	html with an h1 and the word green
-// /blue	GET	html with an h1 and the word blue
-// Everything else respond with 404 and a not found HTML page.
+
